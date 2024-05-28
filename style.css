@@ -1,0 +1,227 @@
+html {
+	background-color: whitesmoke;
+  background-image: url("images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+	font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
+	color: whitesmoke;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: left;
+  justify-content: left;
+}
+
+.globe {
+  position: absolute;
+  height: 80vh;
+  width: 80vh; 
+  background-image: url("images/globeHolder.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 9%;
+  margin: auto;
+}
+
+.tray {
+  height: 80vh;
+  width: 80vh;
+/*  background-color: whitesmoke;*/
+  background-image: url("images/tray.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.gameBack {
+  height: 80vh;
+  width: 80vh; 
+/*  background-color: whitesmoke;*/
+  background-image: url("images/board.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piece {
+  height: 100%;
+  width: 100%;
+  background-image: url("images/piece.png");
+  transition: all 0.2s ease-out;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+}
+
+.face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+}
+
+.die {
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.perspective {
+  position: absolute;
+  left: 67%;
+  top: 35%;
+  display: flex;
+  perspective: 500px;
+  perspective-origin: 200% -50%;
+}
+
+.front {
+  background-image: url("images/1.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.back {
+  background-image: url("images/2.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateY(180deg) translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.right {
+  background-image: url("images/3.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateY(90deg) translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.left {
+  background-image: url("images/4.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateY(-90deg) translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.top {
+  background-image: url("images/5.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateX(90deg) translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.bottom {
+  background-image: url("images/6.png");
+  background-color: rgb(60, 157, 210);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotateX(-90deg) translateZ(50px);
+  box-shadow: inset 100px 100px rgb(0, 0, 0, 0.3);
+}
+
+.rolling {
+  animation-name: roll;
+  animation-duration: 0.75s;  
+}
+
+/*@keyframes roll {
+  0% {
+    transform: rotate3d(0);
+  }
+  20% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+  40% {
+    transform: rotate3d(-1, 0, 0, 90deg);
+  }
+  60% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+  80% {
+    transform: rotate3d(0, -1, 0, 90deg);
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 90deg);
+  }
+}*/
+
+@keyframes roll {
+  0% {
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+  20% {
+    transform: rotate3d(1, 1, 0, 72deg);
+  }
+  40% {
+    transform: rotate3d(1, 1, 0, 144deg);
+  }
+  60% {
+    transform: rotate3d(1, 1, 0, 216deg);
+  }
+  80% {
+    transform: rotate3d(1, 1, 0, 288deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    color: #747474;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-align: center;
+    font-size: 15px;
+    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
+    margin: 5px 0px;
+    opacity: 0.9;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 1   
+}
+
+.button:active {
+    opacity: 0.3;
+}
+
+
+.inputs {
+	margin: auto;
+	margin-top: 1px;
+	text-align: center;
+	font-size: 14px;
+	width: 60px;
+}
+
+.inputs:focus, .button:focus {
+	outline: none;
+}
